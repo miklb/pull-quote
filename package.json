@@ -1,0 +1,19 @@
+{
+    "name": "pullquote",
+    "version": "1.0.0",
+    "description": "A progressive ehhancement to add pullqotes to your content using a web component.",
+    "main": "pull-quote.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/miklb/pullquote.git"
+    },
+    "author": "Michael Bishop",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/miklb/pullquotet/issues"
+    },
+    "homepage": "https://github.com/miklb/pullquote#readme"
+}
