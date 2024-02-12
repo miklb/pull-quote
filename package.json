@@ -1,6 +1,6 @@
 {
     "name": "pullquote",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "A progressive ehhancement to add pullqotes to your content using a web component.",
     "main": "pull-quote.js",
     "scripts": {
