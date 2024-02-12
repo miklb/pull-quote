@@ -1,12 +1,12 @@
-# Pullquote Web Component
+# Pull Quote Web Component
 I like pullquotes but there was always the issue with the text being duplicated or pulled out of the flow of the surrounding text. Many years ago, I used [Chris Coyier's jQuery trick](https://css-tricks.com/better-pull-quotes/) but I don't need jQuery and hey, HTML Web Compnents are all the rage now. So here's a simple pullquote web component.
 
 ## Installation
 
 You have a few options (choose one of these):
 
-1. Install via [npm](https://www.npmjs.com/package/@miklb/pullquote): `npm install @miklb/pull-quote`
-1. [Download the source manually from GitHub](https://github.com/miklb/pullquote/tags) into your project.
+1. Install via [npm](https://www.npmjs.com/package/@miklb/pull-quote): `npm install @miklb/pull-quote`
+1. [Download the source manually from GitHub](https://github.com/miklb/pullq-uote/tags) into your project.
 
 
 ### Usage
