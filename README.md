@@ -25,7 +25,9 @@ Make sure you include the `<script>` in your project (choose one of these):
 
 ### Styling
 
-The pullquote by default uses Chris's original styling, but you can override it with your own CSS. The pullquote is wrapped in a `span` with a class of `pullquote`. 
+The pullquote by default uses Chris's original styling, but you can override it with your own CSS. [Josh Collingsworth](https://joshcollinsworth.com/blog/copilot) has a great example of using pull quotes and I noticed he's using an `<aside>` with `aria-hidden="true"` so I've updated the component to use that instead of `<span>`. 
+
+```html
 
 Default CSS
 ```css

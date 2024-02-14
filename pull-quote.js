@@ -4,8 +4,10 @@ class PullQuote extends HTMLElement {
         const originalContent = this.textContent;
 
         // Create a new element for the duplicated content
-        const duplicatedContent = document.createElement('span');
+        const duplicatedContent = document.createElement('aside');
         duplicatedContent.setAttribute('class', 'pullquote');
+        duplicatedContent.setAttribute('aria-hidden', 'true');
+        duplicatedContent.setAttribute('hidden', '');
         duplicatedContent.textContent = originalContent;
 
         // Append the duplicated content to the element
