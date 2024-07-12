@@ -1,38 +1,61 @@
 class PullQuote extends HTMLElement {
-    connectedCallback() {
-        // Get the original content
-        const originalContent = this.textContent;
+    constructor () {
+      super();
+      // Creates a shadow root
+					this.root = this.attachShadow({mode: 'closed'});
+        
+        // get original content
+        let originalContent = this.textContent;
 
-        // Create a new element for the duplicated content
-        const duplicatedContent = document.createElement('aside');
-        duplicatedContent.setAttribute('class', 'pullquote');
-        duplicatedContent.setAttribute('aria-hidden', 'true');
-        duplicatedContent.setAttribute('hidden', '');
-        duplicatedContent.textContent = originalContent;
+        this.root.innerHTML = `
+        <aside class="pullquote" aria-hidden="true" hidden>
+          ${originalContent}
+        </aside>
+        <style>
+          .pullquote {
+            display: block;
+            width: var(--pullquote-width, 12em);
+            font-size: var(--pullquote-font-size, 1.5em);
+            margin: var(--pullquote-margin, 1em auto);
+            color: var(--pullquote-color, #666);
+          }`;
 
-        // Append the duplicated content to the element
-        this.appendChild(duplicatedContent);
-
-        // Add some styles
-        const style = document.createElement('style');
-        style.textContent = `
-      .pullquote {
-        display: block;
-        float: right;
-        padding: 0 0 0 10px;
-        margin: 0 0 10px 10px;
-        width: 170px;
-        font-size: 1.5em;
-        line-height: 1.4em;
-        text-align: right;
-        color: #666;
-        border-left: 3px solid #ccc;
-      }
-    `;
-        // Append the style to the element
-        this.appendChild(style);
     }
-}
+   
+    connectedCallback() {
+      // Show the pullquote
+      this.root.querySelector('.pullquote').removeAttribute('hidden');
+    }
 
+    disconnectedCallback() {
+      // Hide the pullquote
+      this.root.querySelector('.pullquote').setAttribute('hidden', 'true');
+    }
+
+    /**
+ * Create a list of attributes to observe
+ */
+    static get observedAttributes() {
+      return ['left', 'right'];
+    }
+
+    /**
+     * Update the pullquote style based on the attribute
+     */
+    attributeChangedCallback(name, oldValue, newValue) {
+      if (name === 'left') {
+        this.root.querySelector('.pullquote').style.float = 'left';
+        this.root.querySelector('.pullquote').style.borderRight = 'var(--pullquote-border-right, 1px solid #666)';
+        this.root.querySelector('.pullquote').style.marginRight = 'var(--pullquote-margin-right, 1em)';
+      
+      } else if (name === 'right') {
+        this.root.querySelector('.pullquote').style.float = 'right';
+        this.root.querySelector('.pullquote').style.borderLeft = 'var(--pullquote-border-left, 1px solid #666)';
+        this.root.querySelector('.pullquote').style.marginLeft = 'var(--pullquote-margin-left, 1em)';
+      }
+}
+}
 // Define the new element
-customElements.define('pull-quote', PullQuote);
+if ('customElements' in window) {
+  customElements.define('pull-quote', PullQuote);
+}
