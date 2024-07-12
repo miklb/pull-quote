@@ -23,13 +23,11 @@ class PullQuote extends HTMLElement {
     }
    
     connectedCallback() {
-      // Show the pullquote
-      this.root.querySelector('.pullquote').removeAttribute('hidden');
+      
     }
 
     disconnectedCallback() {
-      // Hide the pullquote
-      this.root.querySelector('.pullquote').setAttribute('hidden', 'true');
+     
     }
 
     /**
