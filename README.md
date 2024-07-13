@@ -1,7 +1,7 @@
 # Pull Quote Web Component
 I like pullquotes but there was always the issue with the text being duplicated or pulled out of the flow of the surrounding text. Many years ago, I used [Chris Coyier's jQuery trick](https://css-tricks.com/better-pull-quotes/) but I don't need jQuery and hey, HTML Web Compnents are all the rage now. So here's a simple pullquote web component.
 
-Demo: [https://miklb.github.io/pull-quote/](https://miklb.github.io/pull-quote/index.html)
+Demo: [https://miklb.github.io/pull-quote/](https://miklb.github.io/pull-quote/demo.html)
 
 ## Installation
 
