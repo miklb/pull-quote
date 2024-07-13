@@ -14,10 +14,14 @@ class PullQuote extends HTMLElement {
         <style>
           .pullquote {
             display: block;
-            width: var(--pullquote-width, 12em);
-            font-size: var(--pullquote-font-size, 1.5em);
-            margin: var(--pullquote-margin, 1em auto);
+            width: var(--pullquote-width, 25%);
+            font-size: var(--pq-font-size, 1.5em);
+            margin: var(--pq-left-margin, 0 .8em .5em 0);
+            padding: var(--pq-left-padding, .8em);
+            float: var(--pullquote-float, left);
+            border-right: var(--pullquote-border-right, 5px solid #666);
             color: var(--pullquote-color, #666);
+            background-color: var(--pullquote-left-bg, #f9f9f9);
           }`;
 
     }
@@ -34,22 +38,22 @@ class PullQuote extends HTMLElement {
  * Create a list of attributes to observe
  */
     static get observedAttributes() {
-      return ['left', 'right'];
+      return ['right'];
     }
 
     /**
      * Update the pullquote style based on the attribute
      */
     attributeChangedCallback(name, oldValue, newValue) {
-      if (name === 'left') {
-        this.root.querySelector('.pullquote').style.float = 'left';
-        this.root.querySelector('.pullquote').style.borderRight = 'var(--pullquote-border-right, 1px solid #666)';
-        this.root.querySelector('.pullquote').style.marginRight = 'var(--pullquote-margin-right, 1em)';
-      
-      } else if (name === 'right') {
+       if (name === 'right') {
+       // .pullquote { float: right; border-left: 2px solid #666; border-right: none; }
         this.root.querySelector('.pullquote').style.float = 'right';
-        this.root.querySelector('.pullquote').style.borderLeft = 'var(--pullquote-border-left, 1px solid #666)';
-        this.root.querySelector('.pullquote').style.marginLeft = 'var(--pullquote-margin-left, 1em)';
+        this.root.querySelector('.pullquote').style.borderLeft = 'var(--pq-border-left, 5px solid #f9f)';
+        this.root.querySelector('.pullquote').style.borderRight = 'none';
+        this.root.querySelector('.pullquote').style.margin = 'var(--pq-right-margin, 0 0 .8em .5em)';
+        this.root.querySelector('.pullquote').style.padding = 'var(--pq-right-padding, .8em)';
+        this.root.querySelector('.pullquote').style.color = 'var(--pq-right-color, #f9f9f9)';
+        this.root.querySelector('.pullquote').style.backgroundColor = 'var(--pq-right-bg, #666)';
       }
 }
 }
