@@ -1,44 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="" />
-		<title>pull-quote Web Component Demo</title>
-		
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                line-height: 1.6;
-                margin: 0;
-                padding: 0;
-            }
-            header {
-                background-color: #f8f8f8;
-                padding: 1em;
-                margin-bottom: 1em;
-            }
-            main {
-                padding: 1em;
-                max-width: 80vw;
-                margin: 0 auto;
-            }
-        </style>
 
-		<script type="module" src="pull-quote.js"></script>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <title>pull-quote Web Component Demo</title>
 
-		
-	</head>
-	<body>
-		<header>
-			<h1>pull-quote Web Component Demo</h1>
-			<p>Source code available at <a href="https://github.com/miklb/pull-quote/"><code>https://github.com/miklb/pull-quote/</code></a></p>
-		</header>
-		<main>
-        <p>Pull quotes can be useful in <pull-quote right>calling out a specific quote from a larger body of text</pull-quote>. This web component allows you to easily add a pull quote to your site. The component is built using web components, so it can be used in any web project, regardless of the framework or CMS you are using.</p>
-        <p>Here's a bunch of words that could be in the middle of an article that is really complex and deep but at some point an important fact <pull-quote>really needs to be emphasized to the reader</pull-quote>. But we don't want to take the words out of the flow of the writing or duplicate it but we're going to have a bunch more words to fill in the space. This paragraph needs a lot more words to make it effective.</p>
-        <p>Another paragraph for effect. And another sentence. Or more with feeling. I need to really figure out a way to generate text from the editor don't I?</p>
-        <p>Need more text and will add more text here and here and a bunch more words and more words. Now a period. But more words.</p>
-		</main>
-	</body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f8f8f8;
+            padding: 1em;
+            margin-bottom: 1em;
+        }
+
+        main {
+            padding: 1em;
+            max-width: 80vw;
+            margin: 0 auto;
+        }
+    </style>
+
+    <script type="module" src="pull-quote.js"></script>
+
+
+</head>
+
+<body>
+    <header>
+        <h1>pull-quote Web Component Demo</h1>
+        <p>Source code available at <a
+                href="https://github.com/miklb/pull-quote/"><code>https://github.com/miklb/pull-quote/</code></a></p>
+    </header>
+    <main>
+        <p>Pull quotes can be useful in <pull-quote right>calling out a specific quote from a larger body of
+                text</pull-quote>. This web component allows you to easily add a pull quote to your site. The component
+            is built using web components, so it can be used in any web project, regardless of the framework or CMS you
+            are using. It's pretty straightforward and doesn't require any complex setup or configuration to get
+            started.</p>
+
+        <p>Here's a bunch of words that could be in the middle of an article that is really complex and deep but at some
+            point an important fact <pull-quote>really needs to be emphasized to the reader</pull-quote>. But we don't
+            want to take the words out of the flow of the writing or duplicate it but we're going to have a bunch more
+            words to fill in the space. This paragraph needs a lot more words to make it effective. So here's some more
+            text to demonstrate how the pull quote works in context with longer paragraphs that have more substance and
+            flow naturally around the highlighted content.</p>
+
+        <p>Another paragraph for effect. And another sentence. Or more with feeling. I need to really figure out a way
+            to generate text from the editor don't I? But seriously, this is just to show how the component works with
+            different amounts of text and various paragraph lengths. Sometimes you need short paragraphs, sometimes you
+            need longer ones that really dive deep into a topic and explore all the nuances and details that make the
+            content rich and engaging for readers.</p>
+
+        <p>Need more text and will add more text here and here and a bunch more words and more words. Now a period. But
+            more words. And then some additional thoughts that flow naturally from the previous ideas. <pull-quote
+                right>The beauty of this approach is its simplicity</pull-quote> - you don't have to worry about complex
+            CSS or JavaScript implementations. Just wrap your text and it works. More filler text here to make this
+            paragraph substantial enough to demonstrate the floating behavior properly.</p>
+
+        <p>Let's add another paragraph because why not? This one doesn't have a pull quote but it's here to show how the
+            text flows around the previous pull quotes and creates a natural reading experience. The spacing and
+            typography should feel comfortable and easy to read, whether you're on a phone, tablet, or desktop computer.
+            That's the goal anyway - responsive, accessible, and pleasant to read.</p>
+
+        <p>Final paragraph to wrap things up and give us enough content to really see how this whole thing works in
+            practice. <pull-quote>Web components are pretty neat when they work properly</pull-quote> and this one
+            should demonstrate that nicely. More words here, more sentences there, just filling out the space so we have
+            enough content to make a proper demo that shows off all the features and behaviors of the component in
+            different scenarios and contexts.</p>
+    </main>
+</body>
+
 </html>

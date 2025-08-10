@@ -2,15 +2,18 @@ class PullQuote extends HTMLElement {
     constructor () {
       super();
       // Creates a shadow root
-					this.root = this.attachShadow({mode: 'closed'});
-        
-        // get original content
+					this.root = this.attachShadow({mode: 'open'});
+    }
+
+    connectedCallback() {
+        // get original content after the element is connected to the DOM
         let originalContent = this.textContent;
 
         this.root.innerHTML = `
-        <aside class="pullquote" aria-hidden="true" hidden>
+        <aside class="pullquote" aria-hidden="true" role="presentation">
           ${originalContent}
         </aside>
+        <slot></slot>
         <style>
           .pullquote {
             display: block;
@@ -22,40 +25,28 @@ class PullQuote extends HTMLElement {
             border-right: var(--pullquote-border-right, 5px solid #666);
             color: var(--pullquote-color, #666);
             background-color: var(--pullquote-left-bg, #f9f9f9);
-          }`;
-
+          }
+          
+          :host([right]) .pullquote {
+            float: right;
+            border-left: var(--pq-border-left, 5px solid #f9f);
+            border-right: none;
+            margin: var(--pq-right-margin, 0 0 .8em .5em);
+            padding: var(--pq-right-padding, .8em);
+            color: var(--pq-right-color, #f9f9f9);
+            background-color: var(--pq-right-bg, #666);
+          }
+          
+          slot {
+            display: contents;
+          }
+        </style>`;
     }
    
-    connectedCallback() {
-      
-    }
-
+   
     disconnectedCallback() {
      
     }
-
-    /**
- * Create a list of attributes to observe
- */
-    static get observedAttributes() {
-      return ['right'];
-    }
-
-    /**
-     * Update the pullquote style based on the attribute
-     */
-    attributeChangedCallback(name, oldValue, newValue) {
-       if (name === 'right') {
-       // .pullquote { float: right; border-left: 2px solid #666; border-right: none; }
-        this.root.querySelector('.pullquote').style.float = 'right';
-        this.root.querySelector('.pullquote').style.borderLeft = 'var(--pq-border-left, 5px solid #f9f)';
-        this.root.querySelector('.pullquote').style.borderRight = 'none';
-        this.root.querySelector('.pullquote').style.margin = 'var(--pq-right-margin, 0 0 .8em .5em)';
-        this.root.querySelector('.pullquote').style.padding = 'var(--pq-right-padding, .8em)';
-        this.root.querySelector('.pullquote').style.color = 'var(--pq-right-color, #f9f9f9)';
-        this.root.querySelector('.pullquote').style.backgroundColor = 'var(--pq-right-bg, #666)';
-      }
-}
 }
 // Define the new element
 if ('customElements' in window) {

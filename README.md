@@ -1,59 +1,132 @@
 # Pull Quote Web Component
-I like pullquotes but there was always the issue with the text being duplicated or pulled out of the flow of the surrounding text. Many years ago, I used [Chris Coyier's jQuery trick](https://css-tricks.com/better-pull-quotes/) but I don't need jQuery and hey, HTML Web Compnents are all the rage now. So here's a simple pullquote web component.
 
-Demo: [https://miklb.github.io/pull-quote/](https://miklb.github.io/pull-quote/demo.html)
+A modern, accessible web component for creating pull quotes that preserve the original text flow while providing visual emphasis. Built with Shadow DOM for style encapsulation and proper accessibility support.
+
+This component solves the classic pull quote problem: how to visually emphasize text without duplicating it for screen readers or breaking the document flow.
+
+**Demo:** [https://miklb.github.io/pullquote-html-web-component/demo.html](https://miklb.github.io/pullquote-html-web-component/demo.html)
+
+## Features
+
+- ✅ **Accessible by default** - Text is read only once by screen readers
+- ✅ **Shadow DOM encapsulation** - Styles won't conflict with your CSS
+- ✅ **Highly customizable** - Extensive CSS custom properties support
+- ✅ **Modern browser support** - Uses native web standards
+- ✅ **Framework agnostic** - Works with any JavaScript framework or vanilla HTML
+- ✅ **Lightweight** - Minimal overhead, no dependencies
 
 ## Installation
 
+1. [Download pull-quote.js](https://github.com/miklb/pullquote-html-web-component/blob/main/pull-quote.js) and include it in your project.
 
-1. [Include pull-quote.js from GitHub](https://github.com/miklb/pull-quote/blob/main/pull-quote.js) in your project.
+## Usage
 
-
-### Usage
-
-Make sure you include the `<script>` in your project:
-
+Include the script in your HTML:
 
 ```html
-<!-- Host yourself -->
 <script type="module" src="pull-quote.js"></script>
 ```
 
+Use the component inline within your content:
+
 ```html
-<p>This is some text in your content. <pull-quote>And this is a pullquote</pull-quote> and more text.</p>
+<p>
+  Your content flows naturally with
+  <pull-quote>important text highlighted</pull-quote> as a visual pull quote
+  without breaking reading flow.
+</p>
 ```
 
-### Options
-By default, the pullquote floats to the left. Adding the `right` attribute will float to the right. `<pull-quote right></pullquote>`
+### Positioning Options
 
-### Styling
+```html
+<!-- Left-aligned (default) -->
+<pull-quote>This quote floats to the left</pull-quote>
 
-The pullquote by default uses Chris's general original styling (with an alternate example for styling right pull quotes differently from left), but you can override it with your own CSS. [Josh Collingsworth](https://joshcollinsworth.com/blog/copilot) has a great example of using pull quotes and I noticed he's using an `<aside>` with `aria-hidden="true"` so I've updated the component to use that instead of `<span>`. 
+<!-- Right-aligned -->
+<pull-quote right>This quote floats to the right</pull-quote>
+```
 
-I tried to cover most scenarios with CSS variables, but if you find something missing, please let me know. 
+## Accessibility
+
+This component is built with accessibility as a core feature:
+
+- **Screen reader friendly**: Text is read only once, not duplicated
+- **Proper ARIA attributes**: Uses `aria-hidden="true"` and `role="presentation"` on decorative elements
+- **Document flow preservation**: Original text remains in natural reading order
+- **Semantic markup**: Uses `<aside>` elements with appropriate roles
+
+## Styling
+
+The component uses Shadow DOM for style encapsulation and provides extensive customization through CSS custom properties:
+
+### Default (Left) Styling
 
 ```css
-.pullquote {
-         display: block;
-          width: var(--pullquote-width, 25%);
-          font-size: var(--pq-font-size, 1.5em);
-          margin: var(--pq-left-margin, 0 .8em .5em 0);
-          padding: var(--pq-left-padding, .8em);
-          float: var(--pullquote-float, left);
-          border-right: var(--pullquote-border-right, 5px solid #666);
-          color: var(--pullquote-color, #666);
-          background-color: var(--pullquote-left-bg, #f9f9f9);
-      }
+:host {
+  --pullquote-width: 25%;
+  --pq-font-size: 1.5em;
+  --pq-left-margin: 0 0.8em 0.5em 0;
+  --pq-left-padding: 0.8em;
+  --pullquote-border-right: 5px solid #666;
+  --pullquote-color: #666;
+  --pullquote-left-bg: #f9f9f9;
+}
 ```
-with the `right` attribute, the element floats right, and introduces
+
+### Right-Aligned Styling
+
 ```css
-.pullquote[right] {
-          float: right;
-          margin: var(--pq-right-margin, 0 0 .5em .8em);
-          padding: var(--pq-right-padding, .8em);
-          border-left: var(--pq-border-left, 5px solid #f9f);
-          border-right: none;
-          color: var(--pq-right-color, #f9f9f9);
-          background-color: var(--pullquote-right-bg, #666);
-      }
+:host([right]) {
+  --pq-right-margin: 0 0 0.8em 0.5em;
+  --pq-right-padding: 0.8em;
+  --pq-border-left: 5px solid #f9f;
+  --pq-right-color: #f9f9f9;
+  --pq-right-bg: #666;
+}
 ```
+
+### Custom Styling Example
+
+You can override any of the CSS custom properties to match your design:
+
+```css
+pull-quote {
+  --pullquote-width: 30%;
+  --pq-font-size: 1.75em;
+  --pullquote-color: #2c3e50;
+  --pullquote-left-bg: #ecf0f1;
+  --pullquote-border-right: 3px solid #3498db;
+}
+```
+
+## Browser Support
+
+This component uses modern web standards and is supported in:
+
+- ✅ Chrome 54+
+- ✅ Firefox 63+
+- ✅ Safari 10+
+- ✅ Edge 79+ (Chromium-based)
+
+The component uses Shadow DOM and CSS `:host` selectors, which have excellent modern browser support (94%+ global coverage).
+
+## Technical Implementation
+
+- **Shadow DOM**: Provides style encapsulation and proper content projection
+- **Slots**: Preserve original content for accessibility and SEO
+- **CSS `:host` selectors**: Enable attribute-based styling without JavaScript
+- **ARIA attributes**: Ensure screen reader compatibility
+- **No dependencies**: Pure vanilla JavaScript web component
+
+## Contributing
+
+Issues and pull requests are welcome! Please ensure any changes maintain accessibility standards and browser compatibility.
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+Inspired by [Chris Coyier's better pull quotes technique](https://css-tricks.com/better-pull-quotes/) and [Josh Collingsworth's accessibility-focused approach](https://joshcollinsworth.com/blog/copilot).

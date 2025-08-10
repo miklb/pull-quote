@@ -1,7 +1,7 @@
 {
     "name": "pullquote",
-    "version": "2.0.2",
-    "description": "A progressive ehhancement to add pullqotes to your content using a web component.",
+    "version": "2.1.0",
+    "description": "An accessible web component for creating pull quotes that preserve text flow and screen reader compatibility.",
     "main": "pull-quote.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
