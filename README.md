@@ -4,6 +4,8 @@ A modern, accessible web component for creating pull quotes that preserve the or
 
 This component solves the classic pull quote problem: how to visually emphasize text without duplicating it for screen readers or breaking the document flow.
 
+There is now a WordPress Block editor plugin that implements this web component https://github.com/miklb/tm-pullquote.
+
 **Demo:** [https://miklb.github.io/pull-quote/demo.html](https://miklb.github.io/pull-quote/demo.html)
 
 ## Features
