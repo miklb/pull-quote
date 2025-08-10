@@ -1,6 +1,6 @@
 {
     "name": "pullquote",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "description": "An accessible web component for creating pull quotes that preserve text flow and screen reader compatibility.",
     "main": "pull-quote.js",
     "scripts": {
@@ -8,12 +8,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/miklb/pullquote.git"
+        "url": "git+https://github.com/miklb/pull-quote.git"
     },
     "author": "Michael Bishop",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/miklb/pullquotet/issues"
+        "url": "https://github.com/miklb/pull-quote/issues"
     },
-    "homepage": "https://github.com/miklb/pullquote#readme"
+    "homepage": "https://github.com/miklb/pull-quote#readme"
 }

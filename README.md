@@ -4,7 +4,7 @@ A modern, accessible web component for creating pull quotes that preserve the or
 
 This component solves the classic pull quote problem: how to visually emphasize text without duplicating it for screen readers or breaking the document flow.
 
-**Demo:** [https://miklb.github.io/pullquote-html-web-component/demo.html](https://miklb.github.io/pullquote-html-web-component/demo.html)
+**Demo:** [https://miklb.github.io/pull-quote/demo.html](https://miklb.github.io/pull-quote/demo.html)
 
 ## Features
 
@@ -45,6 +45,9 @@ Use the component inline within your content:
 
 <!-- Right-aligned -->
 <pull-quote right>This quote floats to the right</pull-quote>
+
+<!-- Center-aligned -->
+<pull-quote center>This quote is centered and breaks the text flow</pull-quote>
 ```
 
 ## Accessibility
@@ -65,9 +68,9 @@ The component uses Shadow DOM for style encapsulation and provides extensive cus
 ```css
 :host {
   --pullquote-width: 25%;
-  --pq-font-size: 1.5em;
-  --pq-left-margin: 0 0.8em 0.5em 0;
-  --pq-left-padding: 0.8em;
+  --pullquote-font-size: 1.5em;
+  --pullquote-left-margin: 0 0.8em 0.5em 0;
+  --pullquote-left-padding: 0.8em;
   --pullquote-border-right: 5px solid #666;
   --pullquote-color: #666;
   --pullquote-left-bg: #f9f9f9;
@@ -78,11 +81,28 @@ The component uses Shadow DOM for style encapsulation and provides extensive cus
 
 ```css
 :host([right]) {
-  --pq-right-margin: 0 0 0.8em 0.5em;
-  --pq-right-padding: 0.8em;
-  --pq-border-left: 5px solid #f9f;
-  --pq-right-color: #f9f9f9;
-  --pq-right-bg: #666;
+  --pullquote-right-margin: 0 0 0.8em 0.5em;
+  --pullquote-right-padding: 0.8em;
+  --pullquote-border-left: 5px solid #f9f;
+  --pullquote-right-color: #f9f9f9;
+  --pullquote-right-bg: #666;
+}
+```
+
+### Center-Aligned Styling
+
+```css
+:host([center]) {
+  --pullquote-center-margin-inline: auto;
+  --pullquote-center-margin-block-start: 1.5em;
+  --pullquote-center-margin-block-end: 1.5em;
+  --pullquote-center-text-align: center;
+  --pullquote-center-border-block-start: 3px solid #3498db;
+  --pullquote-center-border-block-end: 3px solid #3498db;
+  --pullquote-center-color: #2c3e50;
+  --pullquote-center-background: #ecf0f1;
+  --pullquote-center-font-style: italic;
+  --pullquote-center-inline-size: min(90%, 40em);
 }
 ```
 
@@ -93,7 +113,7 @@ You can override any of the CSS custom properties to match your design:
 ```css
 pull-quote {
   --pullquote-width: 30%;
-  --pq-font-size: 1.75em;
+  --pullquote-font-size: 1.75em;
   --pullquote-color: #2c3e50;
   --pullquote-left-bg: #ecf0f1;
   --pullquote-border-right: 3px solid #3498db;

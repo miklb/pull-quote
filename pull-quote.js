@@ -17,24 +17,41 @@ class PullQuote extends HTMLElement {
         <style>
           .pullquote {
             display: block;
-            width: var(--pullquote-width, 25%);
-            font-size: var(--pq-font-size, 1.5em);
-            margin: var(--pq-left-margin, 0 .8em .5em 0);
-            padding: var(--pq-left-padding, .8em);
+            inline-size: var(--pullquote-inline-size, 25%);
+            font-size: var(--pullquote-font-size, 1.5em);
+            margin-block: var(--pullquote-margin-block-start, 0) var(--pullquote-margin-block-end, 1.5em);
+            margin-inline: var(--pullquote-margin-inline-start, 0) var(--pullquote-margin-inline-end, 1.5em);
+            padding-block: var(--pullquote-padding-block, 1em);
+            padding-inline: var(--pullquote-padding-inline, 1.25em);
             float: var(--pullquote-float, left);
-            border-right: var(--pullquote-border-right, 5px solid #666);
+            border-inline-end: var(--pullquote-border-inline-end, 4px solid #666);
             color: var(--pullquote-color, #666);
-            background-color: var(--pullquote-left-bg, #f9f9f9);
+            background-color: var(--pullquote-background, #f9f9f9);
+            clear: var(--pullquote-clear, none);
           }
           
           :host([right]) .pullquote {
             float: right;
-            border-left: var(--pq-border-left, 5px solid #f9f);
-            border-right: none;
-            margin: var(--pq-right-margin, 0 0 .8em .5em);
-            padding: var(--pq-right-padding, .8em);
-            color: var(--pq-right-color, #f9f9f9);
-            background-color: var(--pq-right-bg, #666);
+            border-inline-start: var(--pullquote-right-border-inline-start, 4px solid #e74c3c);
+            border-inline-end: none;
+            margin-inline: var(--pullquote-right-margin-inline-start, 1.5em) var(--pullquote-right-margin-inline-end, 0);
+            color: var(--pullquote-right-color, #fff);
+            background-color: var(--pullquote-right-background, #e74c3c);
+          }
+          
+          :host([center]) .pullquote {
+            float: none;
+            clear: both;
+            margin-inline: var(--pullquote-center-margin-inline, auto);
+            margin-block: var(--pullquote-center-margin-block-start, 2em) var(--pullquote-center-margin-block-end, 2em);
+            text-align: var(--pullquote-center-text-align, center);
+            border-inline: none;
+            border-block-start: var(--pullquote-center-border-block-start, 3px solid #3498db);
+            border-block-end: var(--pullquote-center-border-block-end, 3px solid #3498db);
+            color: var(--pullquote-center-color, #2c3e50);
+            background-color: var(--pullquote-center-background, #ecf0f1);
+            font-style: var(--pullquote-center-font-style, italic);
+            inline-size: var(--pullquote-center-inline-size, min(90%, 40em));
           }
           
           slot {
@@ -44,9 +61,6 @@ class PullQuote extends HTMLElement {
     }
    
    
-    disconnectedCallback() {
-     
-    }
 }
 // Define the new element
 if ('customElements' in window) {
