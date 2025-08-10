@@ -67,13 +67,18 @@ The component uses Shadow DOM for style encapsulation and provides extensive cus
 
 ```css
 :host {
-  --pullquote-width: 25%;
+  --pullquote-inline-size: 25%;
   --pullquote-font-size: 1.5em;
-  --pullquote-left-margin: 0 0.8em 0.5em 0;
-  --pullquote-left-padding: 0.8em;
-  --pullquote-border-right: 5px solid #666;
+  --pullquote-margin-block-start: 0;
+  --pullquote-margin-block-end: 1.5em;
+  --pullquote-margin-inline-start: 0;
+  --pullquote-margin-inline-end: 1.5em;
+  --pullquote-padding-block: 1em;
+  --pullquote-padding-inline: 1.25em;
+  --pullquote-border-inline-end: 4px solid #666;
   --pullquote-color: #666;
-  --pullquote-left-bg: #f9f9f9;
+  --pullquote-background: #f9f9f9;
+  --pullquote-clear: none;
 }
 ```
 
@@ -81,11 +86,11 @@ The component uses Shadow DOM for style encapsulation and provides extensive cus
 
 ```css
 :host([right]) {
-  --pullquote-right-margin: 0 0 0.8em 0.5em;
-  --pullquote-right-padding: 0.8em;
-  --pullquote-border-left: 5px solid #f9f;
-  --pullquote-right-color: #f9f9f9;
-  --pullquote-right-bg: #666;
+  --pullquote-right-border-inline-start: 4px solid #e74c3c;
+  --pullquote-right-margin-inline-start: 1.5em;
+  --pullquote-right-margin-inline-end: 0;
+  --pullquote-right-color: #fff;
+  --pullquote-right-background: #e74c3c;
 }
 ```
 
@@ -94,8 +99,8 @@ The component uses Shadow DOM for style encapsulation and provides extensive cus
 ```css
 :host([center]) {
   --pullquote-center-margin-inline: auto;
-  --pullquote-center-margin-block-start: 1.5em;
-  --pullquote-center-margin-block-end: 1.5em;
+  --pullquote-center-margin-block-start: 2em;
+  --pullquote-center-margin-block-end: 2em;
   --pullquote-center-text-align: center;
   --pullquote-center-border-block-start: 3px solid #3498db;
   --pullquote-center-border-block-end: 3px solid #3498db;
@@ -112,11 +117,13 @@ You can override any of the CSS custom properties to match your design:
 
 ```css
 pull-quote {
-  --pullquote-width: 30%;
+  --pullquote-inline-size: 30%;
   --pullquote-font-size: 1.75em;
   --pullquote-color: #2c3e50;
-  --pullquote-left-bg: #ecf0f1;
-  --pullquote-border-right: 3px solid #3498db;
+  --pullquote-background: #ecf0f1;
+  --pullquote-border-inline-end: 3px solid #3498db;
+  --pullquote-padding-inline: 1.5em;
+  --pullquote-margin-block-end: 2em;
 }
 ```
 
